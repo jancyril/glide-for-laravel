@@ -2,8 +2,8 @@
 
 namespace Janitor\Glide\Test;
 
-use League\Glide\Server;
 use Janitor\Glide\Glide;
+use League\Glide\Server;
 use Illuminate\Container\Container;
 
 class GlideTest extends TestCase

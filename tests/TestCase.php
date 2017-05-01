@@ -5,8 +5,8 @@ namespace Janitor\Glide\Test;
 use League\Glide\Server;
 use League\Glide\ServerFactory;
 use League\Flysystem\Filesystem;
-use League\Flysystem\Adapter\Local;
 use Illuminate\Container\Container;
+use League\Flysystem\Adapter\Local;
 
 class TestCase extends \PHPUnit_Framework_TestCase
 {
