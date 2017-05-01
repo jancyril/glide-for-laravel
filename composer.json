@@ -1,0 +1,33 @@
+{
+    "name": "jancyril/glide-for-laravel",
+    "description": "Easily manipulate images using PHP Glide",
+    "homepage": "https://github.com/jancyril/glide-for-laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Cyril Segubience",
+            "email": "jancyril@segubience.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "league/glide": "^1.0",
+        "illuminate/support": "^5.4",
+        "illuminate/filesystem": "^5.4"
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0",
+        "illuminate/container": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Janitor\\Glide\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Janitor\\Glide\\Test\\": "tests"
+        }
+    }
+}
