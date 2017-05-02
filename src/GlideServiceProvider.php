@@ -31,9 +31,12 @@ class GlideServiceProvider extends ServiceProvider
                 return ServerFactory::create([
                     'source' => $filesystem->getDriver(),
                     'cache' => $filesystem->getDriver(),
+                    'watermarks' => $filesystem->getDriver(),
                     'source_path_prefix' => config('glide.source_path_prefix'),
                     'cache_path_prefix' => config('glide.cache_path_prefix'),
+                    'watermarks_path_prefix' => config('glide.watermark_path_prefix'),
                     'base_url' => config('glide.base_url'),
+                    'driver' => config('glide.driver'),
                 ]);
             }
         );
