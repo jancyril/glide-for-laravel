@@ -1,6 +1,6 @@
 <?php
 
-namespace Janitor\Glide;
+namespace Jancyril\Glide;
 
 use League\Glide\Server;
 use Illuminate\Contracts\Filesystem\Factory;
@@ -46,7 +46,7 @@ class Glide
      *
      * @param string $image
      *
-     * @return \Janitor\Glide\Glide
+     * @return \Jancyril\Glide\Glide
      */
     public function image($image)
     {
@@ -60,7 +60,7 @@ class Glide
      *
      * @param array $params
      *
-     * @return \Janitor\Glide\Glide
+     * @return \Jancyril\Glide\Glide
      */
     public function manipulate(array $params)
     {
@@ -75,7 +75,7 @@ class Glide
      * @param int $width
      * @param int $height
      *
-     * @return \Janitor\Glide\Glide
+     * @return \Jancyril\Glide\Glide
      */
     public function resize(int $width, int $height)
     {

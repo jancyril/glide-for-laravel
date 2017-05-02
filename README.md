@@ -12,19 +12,19 @@ Add the GlideServiceProvider to your config/app.php inside the providers array:
 
 ```php
 'providers' => [
-    Janitor\Glide\GlideServiceProvider::class,
+    Jancyril\Glide\GlideServiceProvider::class,
 ];
 ```
 
 Publish the config file for this package:
 
-`php artisan vendor:publish --provider="Janitor\Glide\GlideServiceProvider"`
+`php artisan vendor:publish --provider="Jancyril\Glide\GlideServiceProvider"`
 
 Modify the values of your config/glide.php file to suit your needs.
 
 ## Usage
 
-Inject `Janitor\Glide\Glide` in the class that will use it.
+Inject `Jancyril\Glide\Glide` in the class that will use it.
 
 Resizing an image:
 

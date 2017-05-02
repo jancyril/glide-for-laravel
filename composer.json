@@ -22,12 +22,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Janitor\\Glide\\": "src/"
+            "Jancyril\\Glide\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Janitor\\Glide\\Test\\": "tests"
+            "Jancyril\\Glide\\Test\\": "tests"
         }
     }
 }

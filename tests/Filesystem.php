@@ -1,6 +1,6 @@
 <?php
 
-namespace Janitor\Glide\Test;
+namespace Jancyril\Glide\Test;
 
 use League\Flysystem\Filesystem as File;
 use Illuminate\Filesystem\FilesystemManager;

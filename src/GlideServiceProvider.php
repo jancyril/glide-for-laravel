@@ -1,6 +1,6 @@
 <?php
 
-namespace Janitor\Glide;
+namespace Jancyril\Glide;
 
 use League\Glide\Server;
 use League\Glide\ServerFactory;
@@ -44,7 +44,7 @@ class GlideServiceProvider extends ServiceProvider
         $this->app->singleton(
             Glide::class,
             function () {
-                return new \Janitor\Glide\Glide(
+                return new Glide(
                     $this->app->make(Server::class),
                     $this->app->make(Factory::class)
                 );

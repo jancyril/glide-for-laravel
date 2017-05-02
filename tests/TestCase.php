@@ -1,6 +1,6 @@
 <?php
 
-namespace Janitor\Glide\Test;
+namespace Jancyril\Glide\Test;
 
 use League\Glide\Server;
 use League\Glide\ServerFactory;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Janitor\Glide\Test;
+namespace Jancyril\Glide\Test;
 
-use Janitor\Glide\Glide;
+use Jancyril\Glide\Glide;
 use League\Glide\Server;
 use Illuminate\Container\Container;
 
