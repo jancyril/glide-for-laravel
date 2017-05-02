@@ -10,8 +10,6 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 
 class GlideServiceProvider extends ServiceProvider
 {
-    protected $defer = true;
-
     public function boot()
     {
         $this->loadRoutesFrom(__DIR__.'/routes.php');
