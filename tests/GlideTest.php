@@ -2,8 +2,8 @@
 
 namespace Jancyril\Glide\Test;
 
-use Jancyril\Glide\Glide;
 use League\Glide\Server;
+use Jancyril\Glide\Glide;
 use Illuminate\Container\Container;
 
 class GlideTest extends TestCase

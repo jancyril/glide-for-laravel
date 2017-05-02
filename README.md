@@ -60,9 +60,7 @@ To see all available parameters visit [Glide Page](http://glide.thephpleague.com
 
 Dynamic image manipulation via route:
 
-```php
-http://localhost/image/sample_image.jpg?w=200
-```
+`http://localhost/image/sample_image.jpg?w=200`
 
 You can pass parameters as query string to your URL.
 
