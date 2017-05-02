@@ -1,7 +1,7 @@
 # Glide for Laravel
 [![Build Status](https://travis-ci.org/jancyril/glide-for-laravel.svg?branch=master)](https://travis-ci.org/jancyril/glide-for-laravel)
 
-A package to easily use Glide in Laravel 5.
+A wrapper to easily use Glide in Laravel 5.
 
 ## Installation
 Download via composer:
@@ -57,3 +57,13 @@ $this->glide->image($imagePath)
 ```
 
 To see all available parameters visit [Glide Page](http://glide.thephpleague.com/1.0/api/quick-reference/).
+
+Dynamic image manipulation via route:
+
+```php
+http://localhost/image/sample_image.jpg?w=200
+```
+
+You can pass parameters as query string to your URL.
+
+The image segment in the URL can be changed in your config/glide.php.
