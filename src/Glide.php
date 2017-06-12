@@ -26,10 +26,10 @@ class Glide
      *
      * @var string
      */
-    private $modified;
+    private $modifiedImage;
 
     /**
-     * Contains the instance of \Illuminate\Contracts\Filesystem\Factory
+     * Contains the instance of \Illuminate\Contracts\Filesystem\Factory.
      *
      * @var object
      */
@@ -48,7 +48,7 @@ class Glide
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function image($image)
+    public function setImage($image)
     {
         $this->image = $image;
 
@@ -58,13 +58,86 @@ class Glide
     /**
      * Manipulate an image by providing an array of modifications.
      *
-     * @param array $params
+     * @param array $options
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function manipulate(array $params)
+    public function manipulate(array $options)
     {
-        $this->modified = $this->makeImage($params);
+        $this->modifiedImage = $this->makeImage($options);
+
+        return $this;
+    }
+
+    /**
+     * This will add a filter effect to the image.
+     *
+     * @param string $effect
+     *
+     * @return \Jancyril\Glide\Glide
+     */
+    public function addFilter(string $effect)
+    {
+        $this->modifiedImage = $this->makeImage(['filt' => $effect]);
+
+        return $this;
+    }
+
+    /**
+     * This will add a watermark to the modified image.
+     *
+     * @param string $watermarkImage
+     * @param array  $options
+     *
+     * @return \Jancyril\Glide\Glide
+     */
+    public function addWatermark(string $watermarkImage, array $options = [])
+    {
+        $options['mark'] = $watermarkImage;
+
+        $this->modifiedImage = $this->makeImage($options);
+
+        return $this;
+    }
+
+    /**
+     * This will add blur effect to the image.
+     *
+     * @param int $value
+     *
+     * @return \Jancyril\Glide\Glide
+     */
+    public function blur(int $value)
+    {
+        $this->modifiedImage = $this->makeImage(['blur' => $value]);
+
+        return $this;
+    }
+
+    /**
+     * This will crop the image.
+     *
+     * @param string $position
+     *
+     * @return \Jancyril\Glide\Glide
+     */
+    public function crop(string $position)
+    {
+        $this->modifiedImage = $this->makeImage(['fit' => $position]);
+
+        return $this;
+    }
+
+    /**
+     * This will add a pixelated effect toe the image.
+     *
+     * @param int $value
+     *
+     * @return \Jancyril\Glide\Glide
+     */
+    public function pixelate(int $value)
+    {
+        $this->modifiedImage = $this->makeImage(['pixel' => $value]);
 
         return $this;
     }
@@ -79,7 +152,7 @@ class Glide
      */
     public function resize(int $width, int $height)
     {
-        $this->modified = $this->makeImage([
+        $this->modifiedImage = $this->makeImage([
             'w' => $width,
             'h' => $height,
         ]);
@@ -87,11 +160,9 @@ class Glide
         return $this;
     }
 
-    public function addWatermark(string $markImage, array $attributes = [])
+    public function rotate($orientation)
     {
-        $attributes['mark'] = $markImage;
-
-        $this->modified = $this->makeImage($attributes);
+        $this->modifiedImage = $this->makeImage(['or' => $orientation]);
 
         return $this;
     }
@@ -106,9 +177,9 @@ class Glide
     public function save($output)
     {
         if ($this->filesystem->getDefaultDriver() != 'local') {
-            $file = file_get_contents(config('glide.glide_asset_url').$this->modified);
+            $file = file_get_contents(config('glide.glide_asset_url').$this->modifiedImage);
         } else {
-            $file = file_get_contents($this->modified);
+            $file = file_get_contents($this->modifiedImage);
         }
 
         $this->filesystem->put($output, $file);
@@ -119,12 +190,12 @@ class Glide
     /**
      * This will make the image.
      *
-     * @param array $attributes
+     * @param array $options
      *
      * @return string
      */
-    private function makeImage(array $attributes)
+    private function makeImage(array $options)
     {
-        return $this->glide->makeImage($this->image, $attributes);
+        return $this->glide->makeImage($this->image, $options);
     }
 }

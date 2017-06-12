@@ -28,7 +28,7 @@ class GlideTest extends TestCase
             'blur' => 5,
         ];
 
-        $this->glide->image($this->image)->manipulate($params)->save($this->filepath());
+        $this->glide->setImage($this->image)->manipulate($params)->save($this->filepath());
 
         $this->assertFileExists($this->filepath());
     }
@@ -36,7 +36,7 @@ class GlideTest extends TestCase
     /** @test **/
     public function it_can_resize_an_image()
     {
-        $this->glide->image($this->image)->resize(40, 60)->save($this->filepath());
+        $this->glide->setImage($this->image)->resize(40, 60)->save($this->filepath());
 
         $this->assertFileExists($this->filepath());
     }
@@ -44,12 +44,60 @@ class GlideTest extends TestCase
     /** @test **/
     public function it_can_add_a_watermark()
     {
-        $this->glide->image($this->image)->addWatermark('watermark.png')->save($this->filepath());
+        $this->glide->setImage($this->image)->addWatermark('watermark.png')->save($this->filepath());
 
-        $image = dirname(__DIR__).DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$this->image;
-
-        $this->assertFileNotEquals($image, $this->filepath());
+        $this->assertFileNotEquals($this->originalImagePath(), $this->filepath());
         $this->assertFileExists($this->filepath());
+    }
+
+    /** @test **/
+    public function it_can_crop_an_image()
+    {
+        $this->glide->setImage($this->image)->crop('100,100,915,155')->save($this->filepath());
+
+        $this->assertFileNotEquals($this->originalImagePath(), $this->filepath());
+        $this->assertFileExists($this->filepath());
+    }
+
+    /** @test **/
+    public function it_can_pixelate_an_image()
+    {
+        $this->glide->setImage($this->image)->pixelate(5)->save($this->filepath());
+
+        $this->assertFileNotEquals($this->originalImagePath(), $this->filepath());
+        $this->assertFileExists($this->filepath());
+    }
+
+    /** @test **/
+    public function it_can_blur_an_image()
+    {
+        $this->glide->setImage($this->image)->blur(5)->save($this->filepath());
+
+        $this->assertFileNotEquals($this->originalImagePath(), $this->filepath());
+        $this->assertFileExists($this->filepath());
+    }
+
+    /** @test **/
+    public function it_can_add_a_filter_to_an_image()
+    {
+        $this->glide->setImage($this->image)->addFilter('sepia')->save($this->filepath());
+
+        $this->assertFileNotEquals($this->originalImagePath(), $this->filepath());
+        $this->assertFileExists($this->filepath());
+    }
+
+    /** @test **/
+    public function it_can_rotate_an_image()
+    {
+        $this->glide->setImage($this->image)->rotate(90)->save($this->filepath());
+
+        $this->assertFileNotEquals($this->originalImagePath(), $this->filepath());
+        $this->assertFileExists($this->filepath());
+    }
+
+    private function originalImagePath()
+    {
+        return dirname(__DIR__).DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.$this->image;
     }
 
     private function filepath()
