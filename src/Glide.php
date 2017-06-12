@@ -76,7 +76,7 @@ class Glide
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function addFilter(string $effect)
+    public function addFilter($effect)
     {
         $this->modifiedImage = $this->makeImage(['filt' => $effect]);
 
@@ -91,7 +91,7 @@ class Glide
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function addWatermark(string $watermarkImage, array $options = [])
+    public function addWatermark($watermarkImage, array $options = [])
     {
         $options['mark'] = $watermarkImage;
 
@@ -107,7 +107,7 @@ class Glide
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function blur(int $value)
+    public function blur($value)
     {
         $this->modifiedImage = $this->makeImage(['blur' => $value]);
 
@@ -121,7 +121,7 @@ class Glide
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function crop(string $position)
+    public function crop($position)
     {
         $this->modifiedImage = $this->makeImage(['fit' => $position]);
 
@@ -135,7 +135,7 @@ class Glide
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function pixelate(int $value)
+    public function pixelate($value)
     {
         $this->modifiedImage = $this->makeImage(['pixel' => $value]);
 
@@ -150,7 +150,7 @@ class Glide
      *
      * @return \Jancyril\Glide\Glide
      */
-    public function resize(int $width, int $height)
+    public function resize($width, $height)
     {
         $this->modifiedImage = $this->makeImage([
             'w' => $width,
