@@ -170,21 +170,25 @@ class Glide
     /**
      * This will save the file to the desired path.
      *
-     * @param string $output
+     * @param string $outputImage
      *
      * @return string
      */
-    public function save($output)
+    public function save($outputImage)
     {
         if ($this->filesystem->getDefaultDriver() != 'local') {
-            $file = file_get_contents(config('glide.glide_asset_url').$this->modifiedImage);
-        } else {
-            $file = file_get_contents($this->modifiedImage);
+            $image = file_get_contents(config('glide.glide_asset_url').$this->modifiedImage);
+
+            $this->filesystem->put($outputImage, $image);
+
+            return $outputImage;
         }
 
-        $this->filesystem->put($output, $file);
+        $image = file_get_contents($this->modifiedImage);
 
-        return $output;
+        $this->filesystem->put($outputImage, $image);
+
+        return $outputImage;
     }
 
     /**
