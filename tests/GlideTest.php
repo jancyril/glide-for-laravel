@@ -1,9 +1,9 @@
 <?php
 
-namespace Jancyril\Glide\Test;
+namespace JanCyril\Glide\Test;
 
 use League\Glide\Server;
-use Jancyril\Glide\Glide;
+use JanCyril\Glide\Glide;
 use Illuminate\Container\Container;
 
 class GlideTest extends TestCase

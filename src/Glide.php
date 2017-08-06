@@ -1,6 +1,6 @@
 <?php
 
-namespace Jancyril\Glide;
+namespace JanCyril\Glide;
 
 use League\Glide\Server;
 use Illuminate\Contracts\Filesystem\Factory;
@@ -46,7 +46,7 @@ class Glide
      *
      * @param string $image
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function setImage($image)
     {
@@ -60,7 +60,7 @@ class Glide
      *
      * @param array $options
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function manipulate(array $options)
     {
@@ -74,7 +74,7 @@ class Glide
      *
      * @param string $effect
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function addFilter(string $effect)
     {
@@ -89,7 +89,7 @@ class Glide
      * @param string $watermarkImage
      * @param array  $options
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function addWatermark(string $watermarkImage, array $options = [])
     {
@@ -105,7 +105,7 @@ class Glide
      *
      * @param int $value
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function blur(int $value)
     {
@@ -119,7 +119,7 @@ class Glide
      *
      * @param string $position
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function crop(string $position)
     {
@@ -133,7 +133,7 @@ class Glide
      *
      * @param int $value
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function pixelate(int $value)
     {
@@ -148,7 +148,7 @@ class Glide
      * @param int $width
      * @param int $height
      *
-     * @return \Jancyril\Glide\Glide
+     * @return \JanCyril\Glide\Glide
      */
     public function resize(int $width, int $height)
     {

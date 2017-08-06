@@ -1,6 +1,6 @@
 <?php
 
-namespace Jancyril\Glide;
+namespace JanCyril\Glide;
 
 use League\Glide\Server;
 use League\Glide\ServerFactory;
@@ -26,7 +26,7 @@ class GlideServiceProvider extends ServiceProvider
             function () {
                 $filesystem = $this->app->make(Filesystem::class);
 
-                return ServerFactory::create([
+                return (new ServerFactory([
                     'source' => $filesystem->getDriver(),
                     'cache' => $filesystem->getDriver(),
                     'watermarks' => $filesystem->getDriver(),
@@ -35,7 +35,7 @@ class GlideServiceProvider extends ServiceProvider
                     'watermarks_path_prefix' => config('glide.watermark_path_prefix'),
                     'base_url' => config('glide.base_url'),
                     'driver' => config('glide.driver'),
-                ]);
+                ]))->getServer();
             }
         );
 

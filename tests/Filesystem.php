@@ -1,6 +1,6 @@
 <?php
 
-namespace Jancyril\Glide\Test;
+namespace JanCyril\Glide\Test;
 
 use League\Flysystem\Filesystem as File;
 use Illuminate\Filesystem\FilesystemManager;
@@ -17,10 +17,10 @@ class Filesystem extends FilesystemManager
         return 'local';
     }
 
-    public function getConfig($name)
+    public function getConfig($name = 'local')
     {
         return [
-            'driver' => 'local',
+            'driver' => $name,
             'root' => '/',
         ];
     }

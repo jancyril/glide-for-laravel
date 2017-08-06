@@ -1,6 +1,6 @@
 <?php
 
-namespace Jancyril\Glide\Test;
+namespace JanCyril\Glide\Test;
 
 use League\Glide\Server;
 use League\Glide\ServerFactory;
@@ -21,14 +21,14 @@ class TestCase extends \PHPUnit_Framework_TestCase
         $app->singleton(
             Server::class,
             function ($app) {
-                return ServerFactory::create([
+                return (new ServerFactory([
                     'source' => new Filesystem(new Local(dirname(__DIR__))),
                     'cache' => new Filesystem(new Local(dirname(__DIR__))),
                     'watermarks' => new Filesystem(new Local(dirname(__DIR__))),
                     'source_path_prefix' => 'images',
                     'cache_path_prefix' => '.cache',
                     'watermarks_path_prefix' => 'images/watermark',
-                ]);
+                ]))->getServer();
             }
         );
 
